@@ -25,6 +25,8 @@ $json->serialize($obj);
 If you would add new formats, you should create new class in `src` folder. 
 This class must realize `SerializeInterface.php` and return string.
 ```php
+require_once __DIR__ . '/SerializeInterface.php';
+
 class Your_Format implements SerializeInterface {
     public function serialize($object) {
 
@@ -47,7 +49,7 @@ class Test {
 
     public $value = "Value";
     public $value1 = "Value1";
-    private $value2 = "Value2";
+    private $value2 = ["Value2.1" => 2.1, "Value2.2" => 2.2];
     protected $value3;
 
     function __construct($item) {
@@ -65,6 +67,6 @@ $serialized_obj = $yaml->serialize($test);
 
 #Views results
 echo "<pre>";
-echo $serialized_obj;
+print_r($serialized_obj);
 echo "</pre>";
 ```

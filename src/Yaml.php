@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/SerializeInterface.php';
-class Yaml implements SerializeInterface {
+class YAML implements SerializeInterface {
     public function serialize($object) {
         $reflection = new ReflectionClass($object);
         $public_value = [];
