@@ -1,10 +1,13 @@
 # Library for serializing
 This library can serialize your php objects into `JSON`, `YAML` and `XML`.
 # Table of contents
-1. [How to use](#How-to-use)
-2. [Library extension](#Library-extension)
-3. [Example](#Example)
+* [How to use](#How-to-use)
+    * [General](#General)
+    * [Field selection](#Field-selection)
+* [Library extension](#Library-extension)
+* [Example](#Example)
 ## How to use
+###General
 At first include this library: `require_once __DIR__ . 'XXXXX/src/SerializeLibrary.php'`.
 Where `XXXXX` path to library root folder.
 
@@ -20,6 +23,13 @@ This method will return string with serialized object.
 ```php
 $json = new JSON;
 $json->serialize($obj);
+```
+###Field selection
+If you do not want to serialize the all object, you can select individual fields. 
+For this pass array in `serialize()` with name of field.
+```php
+$json = new JSON;
+$json->serialize($obj, ["value1", "value3"]);
 ```
 ## Library extension
 If you would add new formats, you should create new class in `src` folder. 
@@ -49,7 +59,7 @@ class Test {
 
     public $value = "Value";
     public $value1 = "Value1";
-    private $value2 = ["Value2.1" => 2.1, "Value2.2" => 2.2];
+    private $value2 = ["Value2.1" => "first", "Value2.2" => 2];
     protected $value3;
 
     function __construct($item) {
@@ -63,10 +73,19 @@ $test = new Test("Value3");
 $yaml = new YAML;
 
 #Saving serialized object
-$serialized_obj = $yaml->serialize($test);
+$serialized_obj = $yaml->serialize($test, ["value", "value2"]);
 
 #Views results
 echo "<pre>";
 print_r($serialized_obj);
 echo "</pre>";
+```
+As a result, we get.
+```yaml
+---
+value: Value
+value2:
+  Value2.1: first
+  Value2.2: 2
+...
 ```
