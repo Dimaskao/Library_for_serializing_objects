@@ -19,7 +19,7 @@ class Test {
 $test = new Test("Value3");
 
 //Creating YAML object
-$json = new JSON;
+$json = new JSON();
 
 //Saving serialized object
 $serialized_obj = $json->serialize($test, ["value", "value2"]);

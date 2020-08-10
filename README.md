@@ -13,9 +13,9 @@ Where `XXXXX` path to library root folder.
 
 If you want to serialize an object, you should create a new `JSON`, `YAML` or `XML` object.
 ```php
-$json = new JSON;
-$yaml = new YAML;
-$xml = new XML;
+$json = new JSON();
+$yaml = new YAML();
+$xml = new XML();
 ```
 
 Then use `->serialize()` method and pass an object to it.
@@ -28,7 +28,7 @@ $json->serialize($obj);
 If you do not want to serialize the all object, you can select individual fields. 
 For this pass array in `serialize()` with name of field.
 ```php
-$json = new JSON;
+$json = new JSON();
 $json->serialize($obj, ["value1", "value3"]);
 ```
 ## Library extension
@@ -70,7 +70,7 @@ class Test {
 $test = new Test("Value3");
 
 //Creating YAML object
-$yaml = new YAML;
+$yaml = new YAML();
 
 //Saving serialized object
 $serialized_obj = $yaml->serialize($test, ["value", "value2"]);
