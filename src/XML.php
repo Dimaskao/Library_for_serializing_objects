@@ -1,23 +1,23 @@
 <?php
 
-require_once __DIR__ . '/SerializeInterface.php';
+require_once __DIR__ . '/SerializerInterface.php';
 class XML implements SerializeInterface {
-    final public function serialize($object,  $elemetn_list = false){
+    final public function serialize($object,  $elemetn_list = []){
 
         $reflection = new ReflectionClass($object);
         $public_value = [];
 
-        #Using reflection to get privat and protection elements
+        //Using reflection to get privat and protection elements
         foreach ($reflection->getProperties() as $property) {
             $property->setAccessible(true);
             $public_value[$property->getName()] = $property->getValue($object);
         }
 
-        #Saving only the specified fields
+        //Saving only the specified fields
         if($elemetn_list) {
             $result = [];
             foreach ($elemetn_list as $value) {
-                if (array_key_exists($value, $public_value)) {
+                if (isset($public_value[$value])) {
                     $result[$value] = $public_value[$value];
                 }
             }
@@ -28,12 +28,12 @@ class XML implements SerializeInterface {
 
         $xml_result =  $this->deep_serialize($public_value, $xml_value);
 
-        #Returning result
+        //Returning result
         return $xml_result->asXML();
     }
 
-    #This method processes an array of any depth
-    final private function deep_serialize($public_value, $xml_value){
+    //This method processes an array of any depth
+    private function deep_serialize($public_value, $xml_value){
         foreach( $public_value as $key => $value ) {
             if( is_array($value) ) {
                 if( is_numeric($key) ){

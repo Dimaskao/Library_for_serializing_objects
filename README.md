@@ -7,8 +7,8 @@ This library can serialize your php objects into `JSON`, `YAML` and `XML`.
 * [Library extension](#Library-extension)
 * [Example](#Example)
 ## How to use
-###General
-At first include this library: `require_once __DIR__ . 'XXXXX/src/SerializeLibrary.php'`.
+### General
+At first include this library: `require_once __DIR__ . 'XXXXX/src/autoloader.php'`.
 Where `XXXXX` path to library root folder.
 
 If you want to serialize an object, you should create a new `JSON`, `YAML` or `XML` object.
@@ -21,10 +21,10 @@ $xml = new XML;
 Then use `->serialize()` method and pass an object to it.
 This method will return string with serialized object. 
 ```php
-$json = new JSON;
+$json = new JSON();
 $json->serialize($obj);
 ```
-###Field selection
+### Field selection
 If you do not want to serialize the all object, you can select individual fields. 
 For this pass array in `serialize()` with name of field.
 ```php
@@ -35,26 +35,26 @@ $json->serialize($obj, ["value1", "value3"]);
 If you would add new formats, you should create new class in `src` folder. 
 This class must realize `SerializeInterface.php` and return string.
 ```php
-require_once __DIR__ . '/SerializeInterface.php';
+require_once __DIR__ . '/SerializerInterface.php';
 
-class Your_Format implements SerializeInterface {
+class Your_Format implements SerializerInterface {
     public function serialize($object) {
 
         return $serialized_obj;
     }
 }
 ```
-Also you should add path to your class into `SerializeLibrary.php`.
+Also you should add path to your class into `autoloader.php`.
 
 `require_once __DIR__ . '/Your_Class.php';`
 
 ## Example
 Let's see how it works using the YAML example.
 ```php
-#Include library
-require_once __DIR__ . '/src/SerializeLibrary.php';
+//Include library
+require_once __DIR__ . '/src/autoloader.php';
 
-#Creating test class
+//Creating test class
 class Test {
 
     public $value = "Value";
@@ -66,16 +66,16 @@ class Test {
         $this->value3 = $item;
     }
 }
-#Creating test object
+//Creating test object
 $test = new Test("Value3");
 
-#Creating YAML object
+//Creating YAML object
 $yaml = new YAML;
 
-#Saving serialized object
+//Saving serialized object
 $serialized_obj = $yaml->serialize($test, ["value", "value2"]);
 
-#Views results
+//Views results
 echo "<pre>";
 print_r($serialized_obj);
 echo "</pre>";

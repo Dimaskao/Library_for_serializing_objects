@@ -1,10 +1,9 @@
 #!/usr/bin/php
 
 <?php
+require_once __DIR__ . '/../src/autoloader.php';
 
-#Include library
-require_once __DIR__ . '/../src/SerializeLibrary.php';
-
+//Creating test class
 class Test {
 
     public $value = "Value";
@@ -16,14 +15,14 @@ class Test {
         $this->value3 = $item;
     }
 }
-#Creating test object
+//Creating test object
 $test = new Test("Value3");
 
-#Creating YAML object
+//Creating YAML object
 $json = new JSON;
 
-#Saving serialized object
+//Saving serialized object
 $serialized_obj = $json->serialize($test, ["value", "value2"]);
 
-#Views results
+//Views results
 print_r($serialized_obj);
