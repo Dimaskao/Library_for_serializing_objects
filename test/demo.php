@@ -26,6 +26,4 @@ $json = new JSON;
 $serialized_obj = $json->serialize($test, ["value", "value2"]);
 
 #Views results
-echo "<pre>";
 print_r($serialized_obj);
-echo "</pre>";
