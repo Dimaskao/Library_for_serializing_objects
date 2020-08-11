@@ -43,7 +43,7 @@ class YourFormat extends AbstractSerializer implements SerializerInterface {
 ```
 This class must have a `serialize()` method. Use `$this->get_data()` to get all fields in an object.
 
-`$elemetn_list` - optional array with the fields to get. [Watch this](#Field-selection).
+`$elemetn_list` - optional array with the fields to get. Watch [Field selection](#Field-selection).
 ```php
 class YourFormat extends AbstractSerializer implements SerializerInterface {
     public function serialize($obj, $elemetn_list = []){
