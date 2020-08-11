@@ -3,7 +3,7 @@
 require_once __DIR__ . '/SerializerInterface.php';
 require_once __DIR__ . '/AbstractSerializer.php';
 
-class JSON extends AbstractSerializer implements SerializeInterface {
+class JSON extends AbstractSerializer implements SerializerInterface {
     final public function serialize($object, $elemetn_list = []) {
 
         //Getting all fields

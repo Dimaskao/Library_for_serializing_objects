@@ -21,8 +21,8 @@ abstract class AbstractSerializer
                     $result[$value] = $public_value[$value];
                 }
             }
+            return $result;
         }
-
-        return $result;
+        return $public_value;
     }
 }

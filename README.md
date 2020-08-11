@@ -32,27 +32,35 @@ $json = new JSON();
 $json->serialize($obj, ["value1", "value3"]);
 ```
 ## Library extension
-If you would add new formats, you should create new class in `src` folder. 
-This class must realize `SerializeInterface.php` and return string.
+If you would add new formats, you should create your own class 
+which extends `AbstractSerializer.php` and implements `SerializerInterface.php`.
 ```php
-require_once __DIR__ . '/SerializerInterface.php';
+require_once __DIR__ . 'src/autoloader.php';
 
-class Your_Format implements SerializerInterface {
-    public function serialize($object) {
+class YourFormat extends AbstractSerializer implements SerializerInterface {
 
-        return $serialized_obj;
+}
+```
+This class must have a `serialize()` method. Use `$this->get_data()` to get all fields in an object.
+
+`$elemetn_list` - optional array with the fields to get. [Watch this](#Field-selection).
+```php
+class YourFormat extends AbstractSerializer implements SerializerInterface {
+    public function serialize($obj, $elemetn_list = []){
+        $public_value = $this->get_data($obj, $elemetn_list);
     }
 }
 ```
-Also you should add path to your class into `autoloader.php`.
-
-`require_once __DIR__ . '/Your_Class.php';`
+Then you can do whatever you want with `$public_value`, for example:
+```php 
+return json_encode($public_value)
+```
 
 ## Example
 Let's see how it works using the YAML example.
 ```php
 //Include library
-require_once __DIR__ . '/src/autoloader.php';
+require_once __DIR__ . 'src/autoloader.php';
 
 //Creating test class
 class Test {
