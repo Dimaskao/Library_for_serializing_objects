@@ -1,7 +1,7 @@
 #!/usr/bin/php
 
 <?php
-require_once DIR . '/../src/autoloader.php';
+require_once __DIR__ . '/../src/autoloader.php';
 
 //Creating test class
 class Test {
