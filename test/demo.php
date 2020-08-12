@@ -4,7 +4,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Serializer\JSON;
+use Dimaskao\Serializer\JSON;
 
 //Creating test class
 class Test {

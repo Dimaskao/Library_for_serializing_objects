@@ -10,8 +10,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "Serializer\\": "src/"
+            "Dimaskao\\Serializer\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "php": ">=7.4",
+        "symfony/yaml": "^5.1"
+    }
 }

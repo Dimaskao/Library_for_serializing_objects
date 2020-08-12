@@ -1,6 +1,6 @@
 <?php
 
-namespace Serializer;
+namespace Dimaskao\Serializer;
 
 class JSON extends AbstractSerializer implements SerializerInterface {
     final public function serialize($object, $elemetn_list = []) {
