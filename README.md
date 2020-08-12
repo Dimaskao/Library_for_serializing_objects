@@ -12,16 +12,16 @@ At first include this library classes:
 ```php
 require_once __DIR__ . '/XXXXX/vendor/autoload.php';
 
-use Serializer/JSON// |\
-use Serializer/XML // |- Choose what you need
-use Serializer/YAML// |/
+use Dimaskao\Serializer\JSON   //|\
+use Dimaskao\Serializer\XML    //|- Choose what you need
+use Dimaskao\Serializer\_YAML_ //|/
 ```
 Where `XXXXX` path to library root folder. 
 
-If you want to serialize an object, you should create a new `JSON`, `YAML` or `XML` object.
+If you want to serialize an object, you should create a new `JSON`, `_YAML_` or `XML` object.
 ```php
 $json = new JSON();
-$yaml = new YAML();
+$yaml = new _YAML_();
 $xml = new XML();
 ```
 
@@ -43,8 +43,8 @@ If you would add new formats, you should create your own class
 which extends `AbstractSerializer.php` and implements `SerializerInterface.php`.
 ```php
 require_once __DIR__ . '/vendor/autoload.php';
-use Serializer\AbstractSerializer;
-use Serializer\SerializerInterface;
+use Dimaskao\Serializer\AbstractSerializer;
+use Dimaskao\Serializer\SerializerInterface;
 
 class YourFormat extends AbstractSerializer implements SerializerInterface {
 
@@ -71,7 +71,7 @@ Let's see how it works using the YAML example.
 //Include library
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Serializer\YAML;
+use Dimaskao\Serializer\_YAML_;
 
 //Creating test class
 class Test {
@@ -89,7 +89,7 @@ class Test {
 $test = new Test("Value3");
 
 //Creating YAML object
-$yaml = new YAML();
+$yaml = new _YAML_();
 
 //Saving serialized object
 $serialized_obj = $yaml->serialize($test, ["value", "value2"]);

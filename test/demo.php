@@ -4,7 +4,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Dimaskao\Serializer\JSON;
+use Dimaskao\Serializer\_YAML_;
 
 //Creating test class
 class Test {
@@ -22,10 +22,10 @@ class Test {
 $test = new Test("Value3");
 
 //Creating YAML object
-$json = new JSON();
+$yaml = new _YAML_();
 
 //Saving serialized object
-$serialized_obj = $json->serialize($test, ["value", "value2"]);
+$serialized_obj = $yaml->serialize($test, ["value", "value2"]);
 
 //Views results
 print_r($serialized_obj);
