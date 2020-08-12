@@ -8,8 +8,15 @@ This library can serialize your php objects into `JSON`, `YAML` and `XML`.
 * [Example](#Example)
 ## How to use
 ### General
-At first include this library: `require_once __DIR__ . 'XXXXX/src/autoloader.php'`.
-Where `XXXXX` path to library root folder.
+At first include this library classes: 
+```php
+require_once __DIR__ . 'XXXXX/vendor/autoload.php';
+
+use Serializer/JSON// |\
+use Serializer/XML // |- Choose what you need
+use Serializer/YAML// |/
+```
+Where `XXXXX` path to library root folder. 
 
 If you want to serialize an object, you should create a new `JSON`, `YAML` or `XML` object.
 ```php
@@ -35,7 +42,9 @@ $json->serialize($obj, ["value1", "value3"]);
 If you would add new formats, you should create your own class 
 which extends `AbstractSerializer.php` and implements `SerializerInterface.php`.
 ```php
-require_once __DIR__ . 'src/autoloader.php';
+require_once __DIR__ . 'vendor/autoload.php';
+use Serializer\AbstractSerializer;
+use Serializer\SerializerInterface;
 
 class YourFormat extends AbstractSerializer implements SerializerInterface {
 
@@ -60,7 +69,9 @@ return json_encode($public_value)
 Let's see how it works using the YAML example.
 ```php
 //Include library
-require_once __DIR__ . 'src/autoloader.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
+use Serializer\YAML;
 
 //Creating test class
 class Test {

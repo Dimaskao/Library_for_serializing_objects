@@ -2,10 +2,9 @@
 
 <?php
 
+require_once DIR . '/../vendor/autoload.php';
+
 use Serializer\JSON;
-
-require_once __DIR__ . '/../vendor/autoload.php';
-
 
 //Creating test class
 class Test {
