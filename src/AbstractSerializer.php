@@ -1,5 +1,8 @@
 <?php
 
+namespace Serializer;
+
+use ReflectionClass;
 
 abstract class AbstractSerializer
 {

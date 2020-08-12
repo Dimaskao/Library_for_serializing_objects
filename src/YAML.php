@@ -1,7 +1,6 @@
 <?php
 
-require_once __DIR__ . '/SerializerInterface.php';
-require_once __DIR__ . '/AbstractSerializer.php';
+namespace Serializer;
 
 class YAML extends AbstractSerializer implements SerializerInterface {
     final public function serialize($object, $elemetn_list = []) {

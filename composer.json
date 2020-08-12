@@ -1,0 +1,17 @@
+{
+    "name": "dimaskao/library_for_serializing_objects",
+    "description": "This library can serialize your php objects into JSON, YAML and XML.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Dmytro Lytvynchuk",
+            "email": "dmytrolutv@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Serializer\\": "src/"
+        }
+    },
+    "require": {}
+}

@@ -1,5 +1,6 @@
 <?php
 
+namespace Serializer;
 
 interface SerializerInterface
 {

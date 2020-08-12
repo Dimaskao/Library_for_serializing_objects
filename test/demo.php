@@ -1,7 +1,11 @@
 #!/usr/bin/php
 
 <?php
-require_once __DIR__ . '/../src/autoloader.php';
+
+use Serializer\JSON;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
 
 //Creating test class
 class Test {
