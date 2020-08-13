@@ -14,14 +14,14 @@ require_once __DIR__ . '/XXXXX/vendor/autoload.php';
 
 use Dimaskao\Serializer\JSON   //|\
 use Dimaskao\Serializer\XML    //|- Choose what you need
-use Dimaskao\Serializer\_YAML_ //|/
+use Dimaskao\Serializer\YAML //|/
 ```
 Where `XXXXX` path to library root folder. 
 
 If you want to serialize an object, you should create a new `JSON`, `_YAML_` or `XML` object.
 ```php
 $json = new JSON();
-$yaml = new _YAML_();
+$yaml = new YAML();
 $xml = new XML();
 ```
 
@@ -71,7 +71,7 @@ Let's see how it works using the YAML example.
 //Include library
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Dimaskao\Serializer\_YAML_;
+use Dimaskao\Serializer\YAML;
 
 //Creating test class
 class Test {
@@ -89,7 +89,7 @@ class Test {
 $test = new Test("Value3");
 
 //Creating YAML object
-$yaml = new _YAML_();
+$yaml = new YAML();
 
 //Saving serialized object
 $serialized_obj = $yaml->serialize($test, ["value", "value2"]);
