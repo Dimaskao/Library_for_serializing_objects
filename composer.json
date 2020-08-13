@@ -15,6 +15,7 @@
     },
     "require": {
         "php": ">=7.4",
-        "symfony/yaml": "^5.1"
+        "symfony/yaml": "^5.1",
+        "ext-json": "*"
     }
 }
