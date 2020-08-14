@@ -1,11 +1,19 @@
 # Library for serializing
 This library can serialize your php objects into `JSON`, `YAML` and `XML`.
 # Table of contents
+* [Installation](#Installation)
 * [How to use](#How-to-use)
     * [General](#General)
     * [Field selection](#Field-selection)
 * [Library extension](#Library-extension)
 * [Example](#Example)
+## Installation
+You can use composer to install this extension.
+
+Just run:
+```
+$ composer require dimaskao/library_for_serializing_objects
+```
 ## How to use
 ### General
 At first include this library classes: 
