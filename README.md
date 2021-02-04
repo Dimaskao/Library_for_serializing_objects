@@ -22,7 +22,7 @@ require_once __DIR__ . '/XXXXX/vendor/autoload.php';
 
 use Dimaskao\Serializer\JSON   //|\
 use Dimaskao\Serializer\XML    //|- Choose what you need
-use Dimaskao\Serializer\YAML //|/
+use Dimaskao\Serializer\YAML   //|/
 ```
 Where `XXXXX` path to library root folder. 
 
